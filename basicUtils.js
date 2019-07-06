@@ -191,7 +191,7 @@ function logger() {
         if (is._array(text)) {
             text.forEach(line => console.male(line))
         } else {
-            console.male(stupidMessage(text))
+            console.male(text)
         }
     }
 
