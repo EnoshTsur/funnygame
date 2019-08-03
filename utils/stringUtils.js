@@ -23,7 +23,8 @@ function stringUtils() {
     }
 
     function _numbers(str) {
-        return str.replace(/\D+/g, _empty)
+        const onlyNumbers = str => str.replace(/\D+/g, _empty)
+        return str.includes('-') ? `-${onlyNumbers(str)}` : onlyNumbers(str) 
     }
 
     var extract_numbers = Object.freeze(_extract(_numbers))

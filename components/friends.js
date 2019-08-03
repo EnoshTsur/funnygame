@@ -16,7 +16,8 @@ function create_friends(){
             backgroundColor: 'lightblue',
             display: 'inline-block',
             position: 'absolute',
-            left: '-100px',
+            left: '-200px',
+            top: '10px',
         },
         'friends'
     )
@@ -24,35 +25,25 @@ function create_friends(){
     function onKey(event) {
 
         const position = {}
-        const directions = ['top', 'bottom', 'left', 'right']
-        
-        directions.forEach(current => 
-            position[current] = pipe(extract_numbers, parseOrZero)(
-                friendsElement.style[current]
-            )
-        )
+        const directions = ['top', 'left', ] 
+
+        directions.forEach(current => position[current] = 
+            pipe(extract_numbers, parseOrZero)(friendsElement.style[current]))
 
         const SPEED = 4
-
-        Object.values(position).forEach((x, i) => console.log(`${i}) - ${x}`))
-        console.log(position)
 
         switch(true) {
             case _is_left(event):
                 friendsElement.style.left = pixelIt(position.left - SPEED)
-                console.log('left')
                 break
             case _is_right(event):
-                friendsElement.style.right = pixelIt(position.left + SPEED)
-                console.log('right')
+                friendsElement.style.left= pixelIt(position.left + SPEED)
                 break
             case _is_up(event):
                 friendsElement.style.top = pixelIt(position.top - SPEED)
-                console.log('up')
                 break
             case _is_down(event):
-                friendsElement.style.bottom = pixelIt(position.top + SPEED)
-                console.log('down')
+                friendsElement.style.top = pixelIt(position.top + SPEED)
                 break
             default:
                 console.log(event.keyCode)
