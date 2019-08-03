@@ -1,8 +1,12 @@
+const hint = hints();
+
 function hints() {
+
+    const { not, } = fn
 
     function hb(func) {
         return delay => {
-            if (fn._negate(is._number)(delay)) return;
+            if (not(is._number)(delay)) return;
             return setTimeout(func, delay);
         }
     }
@@ -12,9 +16,10 @@ function hints() {
      * @param _number delay 
      */
     function _welcomeHint(delay) {
+
         // Element
         function hintElement() {
-            const type = 'h3'
+            const type = ELEMENTS_TYPES.H.H3
             const text = "Check out your console.. ( Use F12 or Fn + F12 -> Look up for Console )"
             const style = { padding: '1rem', color: 'orange', textShadow: '0 2px 3px yellow' }
             const id = 'welcome-hint'
@@ -40,7 +45,6 @@ function hints() {
     }
 }
 
-const hint = hints();
 
 
 
